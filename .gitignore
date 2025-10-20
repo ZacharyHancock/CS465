@@ -67,3 +67,8 @@ typings/
 !.vscode/launch.json 
 !.vscode/extensions.json 
 *.code-workspace 
+
+.vs/
+
+#dotenv environment variables file
+.env

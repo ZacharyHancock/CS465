@@ -5,7 +5,7 @@ import { TripCard } from '../trip-card/trip-card';
 import { Trip } from '../models/trip';
 import { TripData } from '../services/trip-data';
 import { NgOptimizedImage } from '../../../node_modules/@angular/common/index';
-
+import { Authentication } from '../services/authentication'; 
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,12 +20,16 @@ export class TripListing implements OnInit {
   trips: Array<any> = trips;
   message: string = '';
 
-  constructor(private TripData: TripData, private router: Router) {
+  constructor(private TripData: TripData, private router: Router, private Authentication: Authentication) {
     console.log('trip-listing constructor');
   }
 
   public addTrip(): void {
     this.router.navigate(['add-trip']);
+  }
+
+  public isLoggedIn() {
+        return this.Authentication.isLoggedIn();
   }
 
   private getStuff(): void {
